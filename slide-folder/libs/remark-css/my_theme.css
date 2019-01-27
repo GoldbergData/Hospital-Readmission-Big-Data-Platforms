@@ -55,23 +55,28 @@
     display: none;
 }
 
+
 /* Other adjustments */
 
 .text-slide {
-    background-color: #800000;
+    /* background-color: #800000; */
+    /* color: #F3F3F1; */
 }
 
 .text-slide h1 {
-    color: #F3F3F1;
+    /* color: #F3F3F1; */
+    color: #800000;
 }
 
 .text-slide p {
-    color: #F3F3F1; /* U Chicago grey accent 1 */ 
+    /* color: #F3F3F1; U Chicago grey accent 1  */
+    color: #4d4d4f;
     line-height: 1.5;
 }
 
 .text-slide li {
-    color: #F3F3F1;
+    /* color: #F3F3F1; */
+    color: #4d4d4f;
     padding-bottom: .35em;
     line-height: 1.5;
 }
@@ -81,12 +86,26 @@
 }
 
 .text-slide .remark-slide-number {
+    /* color: #F3F3F1; */
+    color: #4d4d4f;
+}
+
+.main-slide {
+    background-color: #800000;
+    color: #F3F3F1;
+}
+
+.main-slide h1 {
+    color: #F3F3F1;
+}
+
+.main-slide p {
     color: #F3F3F1;
 }
 
 .remark-slide table {
     background-color: #F3F3F1;
-    padding: .1em;
+    padding: .5em;
     margin: auto;
     border-top: none;
     border-bottom: none;
@@ -113,7 +132,8 @@ td {
 }
 
 #slide-cost > h3 {
-    color: #F3F3F1;
+    /* color: #F3F3F1; */
+    color: #4d4d4f;
 }
 
 .last-slide h1 {
@@ -121,11 +141,11 @@ td {
 }
 
 .last-slide {
-    background-color: #F3F3F1;
+    /* background-color: #F3F3F1; */
     text-align: left;
 }
 
 .last-slide img {
-    height: 75%;
-    width: 75%;
+    height: 50%;
+    width: 50%;
 }

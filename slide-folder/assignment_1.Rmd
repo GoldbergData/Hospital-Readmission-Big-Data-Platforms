@@ -26,14 +26,14 @@ library(knitr)
 # webshot(file_name, "assignment_1.pdf")
 ```
 
-class: text-slide, center, middle
+class: text-slide, main-slide, center, middle
 
 # Problem Statement
 
 Hospital costs are rising partially because of high readmission rates within 30 days of patient release. Readmission rates have long been a trusted measure of effective and responsible care and have become a primary assessment driver in the healthcare industry.
 ---
 
-class: text-slide, center, middle
+class: text-slide, main-slide, center, middle
 
 # The Goal
 
@@ -154,13 +154,13 @@ name: cost
 
 # Monthly Cost on Average
 
-* Hardware cost (7x per node cost):   $63,000$ 
-* Software cost (7x per node cost):   $28,000$
-* Environment, Power, Cooling, etc:   $31,000$
-* Full time employees (1x):           $110,000$
+* Hardware cost (7x per node cost): $63,000$ 
+* Software cost (7x per node cost): $28,000$
+* Environment, Power, Cooling, etc: $31,000$
+* Full time employees (1x): $110,000$
 
-### Total cost:                           $232,000$<br>
-### Approximate monthly cost:             $20,000$
+Total cost: $232,000$<br>
+Approximate monthly cost: $20,000$
 
 ---
 
