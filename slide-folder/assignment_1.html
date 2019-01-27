@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hospital Re-admission Rates</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Joshua Goldberg  Big Data Platforms Master of Science in Data Science Winter 2019" />
+    <link href="libs/remark-css/my_theme.css" rel="stylesheet" />
+    <link href="libs/remark-css/robot-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: left, middle, inverse, title-slide
+
+# Hospital Re-admission Rates
+## Solving Patient Needs with Big Data and Machine Learning
+### Joshua Goldberg <br><span style="font-size: 50%;">Big Data Platforms<br>Master of Science in Data Science<br>Winter 2019</span>
+
+---
+
+
+
+
+class: text-slide, center, middle
+
+# Problem Statement
+
+Hospital costs are rising partially because of high readmission rates within 30 days of patient release. Readmission rates have long been a trusted measure of effective and responsible care and have become a primary assessment driver in the healthcare industry.
+---
+
+class: text-slide, center, middle
+
+# The Goal
+
+The goal is to research and design a Big data solution that will meet the patient analytics needs of a large health care provider with 500,000 customers (patients) around the world. The big data analytics platform would identify at-risk patients based on past history, chart information, and patient trends. The provider should be able to use this data to identify at-risk patients and provide the necessary care to reduce readmission rates.
+---
+
+class: text-slide, table-info
+
+# Data
+
+Data would be refreshed at numerous intervals, including at patient admission, treatment, and exit.
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Personal Information &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Medical Information &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Hospital Records &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Financial Information &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Date of birth &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Blood group &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Date of admission &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Insurance provider &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Contact information &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Medical history &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cause of illness &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Bill amount &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Next in kin &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Test reports/Medical images &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Duration of stay &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Insurance claims &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Demographics &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Hospital records &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Doctor-in-charge &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Credit related to medical history &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Family &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Admission history &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Treatments/surgeries &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Employment details &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+class: text-slide
+
+# Analytical Solution
+
+Several models will be deployed that provide probabilistic outcomes for patients around readmission, follow-up, and optimal patient care:
+
+--
+
+* A prediction score for patient readmission prior to admission
+--
+
+* A prediction score for readmission as patient receives care at the hospital
+--
+
+* A predictive model that determines a patient’s at-risk at the time of exit.
+--
+
+* Clustering model that groups patients based on the propensity to re-admit; this model would help understand characteristics better of these two groups and can be used when the other predictive models disagree as a subjective tie-breaker
+--
+
+* Once the at-risk patience are identified, a model will be deployed that provide follow-up recommendations to help improve readmission rates
+--
+
+
+Analytics would be performed at numerous points in time, including patient entry, daily/intermittently as medical records are updated, patient exit (throughout the extent of possible readmission classification
+---
+
+class: text-slide
+
+# Big Data Technology 
+
+Data Storage format and compression technique
+* ORC stores collections of rows in one file and within the collection the row data is stored in a columnar format. This allows parallel processing of row collections across a cluster.  It uses specific encoders for different column data types to improve compression further.
+
+--
+
+Database and Query Execution Engine
+* Hive for SQL like queries – as you can simply map HDFS files to Hive tables and query the data. Even the HBase tables can be mapped and Hive can be used to operate on that data.
+* Hbase for real-time querying of data. It is used if the application requires random read or random write operations or both.
+
+---
+
+class: text-slide
+
+# Big Data Technology 
+
+Analytics and Data Science Platform
+* Apache spark can be used for machine learning and analytics – powerful unified engine, machine language are supported, Apache Spark is one of the most actively developed open source platforms 
+
+--
+
+Cloud vs. On premise decision
+* Hosting it on the cloud may cost more if there is consistent long term usage
+* It may cost less to actually build your own Hadoop cluster on premise
+
+---
+
+class: text-slide
+
+# Estimating Data Capacity Requirements
+
+* Number of patients: `\(500,000\)`
+* Average size of electronic medical records including images: `\(80MB\)`
+* Assuming that the readmission rate: `\(20\%\)`
+* Growth of data: `\(20\%\)`
+
+Total starting size: `\(500,000 \times80MB=0.04PB\)`, or about `\(150TB\)`
+
+---
+
+class: text-slide
+name: cluster-node
+
+# Cluster/Node Capacity
+
+* `\(H=RCS\times(1+T)\times(1+G)\)`
+* Assuming `\(T=10%\)`, `\(G=20%\)`, `\(R=3\)`, `\(C=1\)`, `\(S=0.04PB\)`
+* `\(H=3\times1\times0.04\times(1.1)\times(1.2)=0.1584PB= 158.4 TB\)`
+* Assuming each node has a capacity of 24 TB
+
+`\(n=\frac{H}{d}=\frac{1584}{24}=6.6\)`; therefore 7 nodes for initial data
+
+* R: Replication factor. Usually 3 in a production cluster.
+* C: Compression ratio. When no compression is used, `\(C=1\)`.
+* S: Initial size of data that needs to be moved to HDFS.
+* G: Data growth factor 
+* T: Temporary Space; Usually 10-25% of working space
+* d: size of each data node
+
+---
+
+class: text-slide
+name: cost
+
+# Monthly Cost on Average
+
+* Hardware cost (7x per node cost):   `\(63,000\)` 
+* Software cost (7x per node cost):   `\(28,000\)`
+* Environment, Power, Cooling, etc:   `\(31,000\)`
+* Full time employees (1x):           `\(110,000\)`
+
+### Total cost:                           `\(232,000\)`&lt;br&gt;
+### Approximate monthly cost:             `\(20,000\)`
+
+---
+
+class: last-slide, center
+
+&lt;h1 style="text-align: left;"&gt; Architecture Diagram&lt;/h1&gt;
+
+![](Copy of Big Data Architecture.svg)
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
