@@ -58,7 +58,7 @@ blockquote {
 }
 .remark-slide table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
-.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: #eee }
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: red }
 
 @page { margin: 0; }
 @media print {
