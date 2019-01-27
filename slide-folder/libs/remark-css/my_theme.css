@@ -105,7 +105,7 @@
 
 .remark-slide table {
     background-color: #F3F3F1;
-    padding: .5em;
+    padding: .1em;
     margin: auto;
     border-top: none;
     border-bottom: none;
@@ -146,6 +146,6 @@ td {
 }
 
 .last-slide img {
-    height: 50%;
-    width: 50%;
+    height: 75%;
+    width: 75%;
 }
