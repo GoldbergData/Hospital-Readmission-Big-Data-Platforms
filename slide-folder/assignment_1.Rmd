@@ -8,6 +8,7 @@ output:
     lib_dir: libs
     nature:
       titleSlideClass: ["left", "middle", "inverse"]
+      ratio: "16:9"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -18,6 +19,11 @@ options(htmltools.dir.version = FALSE)
 knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE)
 library(tidyverse)
 library(knitr)
+
+# Convert to PDF not working dimensionally
+# library(webshot)
+# file_name <- paste0("file://", normalizePath("slide-folder/assignment_1.html"))
+# webshot(file_name, "assignment_1.pdf")
 ```
 
 class: text-slide, center, middle
