@@ -72,12 +72,13 @@
     /* color: #F3F3F1; U Chicago grey accent 1  */
     color: #4d4d4f;
     line-height: 1.5;
+    margin: 0;
 }
 
 .text-slide li {
     /* color: #F3F3F1; */
     color: #4d4d4f;
-    padding-bottom: .35em;
+    padding: .05em;
     line-height: 1.5;
 }
 
