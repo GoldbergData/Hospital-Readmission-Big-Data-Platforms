@@ -1,5 +1,5 @@
 ---
-title: "Hospital Re-admission Rates"
+title: "Hospital Readmission Rates"
 subtitle: "Solving Patient Needs with Big Data and Machine Learning"
 author: "Joshua Goldberg <br><span style='font-size: 50%;'>Big Data Platforms<br>Master of Science in Data Science<br>Winter 2019</span>"
 output:
@@ -76,11 +76,11 @@ class: text-slide
 
 # Analytical Solution
 
-Several models will be deployed that provide probabilistic outcomes for patients around re-admission, follow-up, and optimal patient care:
+Several models will be deployed that provide probabilistic outcomes for patients around readmission, follow-up, and optimal patient care:
 
 --
 
-* A prediction score for patient re-admission prior to admission
+* A prediction score for patient readmission prior to admission
 --
 
 * A prediction score for readmission as patient receives care at the hospital
