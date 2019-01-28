@@ -4,7 +4,7 @@ subtitle: "Solving Patient Needs with Big Data and Machine Learning"
 author: "Joshua Goldberg <br><span style='font-size: 50%;'>Big Data Platforms<br>Master of Science in Data Science<br>Winter 2019</span>"
 output:
   xaringan::moon_reader:
-    css: [my_theme, robot-fonts]
+    css: [uchicago.css, robot-fonts]
     lib_dir: libs
     nature:
       titleSlideClass: ["left", "middle", "inverse"]
