@@ -150,3 +150,7 @@ td {
     height: 75%;
     width: 75%;
 }
+
+.table-info > table:nth-child(3) {
+    margin-top: .55em;
+}
